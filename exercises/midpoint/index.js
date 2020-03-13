@@ -16,14 +16,26 @@ function midpoint(list) {
   slow = list.head;
   fast = list.head;
 
-  while ( fast.next ) {
-    fast = fast.next;
-    if (fast.next) {
-      fast = fast.next;
-      slow = slow.next;
-    }
+  while ( fast.next && fast.next.next ) {
+    slow = slow.next;
+    fast = fast.next.next;
   } 
+
   return slow;
 }
 
 module.exports = midpoint;
+
+//function midpoint(list) {
+//  slow = list.head;
+//  fast = list.head;
+//
+//  while ( fast.next ) {
+//    fast = fast.next;
+//    if (fast.next) {
+//      fast = fast.next;
+//      slow = slow.next;
+//    }
+//  } 
+//  return slow;
+//}
