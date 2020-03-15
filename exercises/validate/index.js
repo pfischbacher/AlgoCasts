@@ -6,28 +6,20 @@
 // the parent
 
 function validate(node, min = null, max = null) {
-  if (min) {
-    if (min > node.data) {
-      return false;
-    }
+  if (min && min > node.data ) {
+    return false;
   }
 
-  if (max) {
-    if (max < node.data) {
-      return false;
-    }
+  if (max && max < node.data) {
+    return false;
   }
 
-  if (node.left) {
-    if (!validate(node.left, min, node.data)) {
-      return false;
-    }
+  if (node.left && !validate(node.left, min, node.data)) {
+    return false;
   }
 
-  if (node.right) {
-    if(!validate(node.right, node.data, max)) {
-      return false;
-    }
+  if(node.right && !validate(node.right, node.data, max)) {
+    return false;
   }
 
   return true;
